@@ -1,4 +1,12 @@
-export interface Teacher {
+import { Entity } from "typeorm";
+
+@Entity()
+class Teacher { 
+
+}
+
+
+interface Teacher {
     id_docente: string;
     nombres_docente: string;
     apellidos_docente: string;
