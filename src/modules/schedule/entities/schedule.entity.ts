@@ -1,7 +1,7 @@
 import { Column, Entity } from "typeorm";
 
 @Entity({name:'horario'})
-class Schedule{
+export class Schedule{
     @Column()
     id: string;
     @Column()
