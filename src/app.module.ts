@@ -8,6 +8,8 @@ import { StudentModule } from './modules/student/student.module';
 import { ScheduleModule } from './modules/schedule/schedule.module';
 import { CourseModule } from './modules/course/course.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AsignaturasModule } from './modules/asignaturas/asignaturas.module';
+import { MallacurricularModule } from './modules/mallacurricular/mallacurricular.module';
 
 @Module({
   imports: [
@@ -16,12 +18,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: 'Santi018',
+      password: 'santi018',
       database: 'Modelo_Horarios_G4_3AV_Final',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true
+      synchronize: false, // solo activar si las tablas no existen
+      dropSchema: false   // no activar, borra toda la base y la crea de cero
     }),
-    TaskModule, TeachersModule, CatalogoModule, StudentModule, ScheduleModule, CourseModule],
+    TaskModule, TeachersModule, CatalogoModule, StudentModule, ScheduleModule, CourseModule, AsignaturasModule, MallacurricularModule],
   controllers: [AppController],
   providers: [AppService],
 })

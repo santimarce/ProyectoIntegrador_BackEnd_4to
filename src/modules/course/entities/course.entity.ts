@@ -1,13 +1,30 @@
-import { Column, Entity } from "typeorm";
+import { TipoAula } from "src/modules/catalogo/entities/tipoaula.entity";
+import { Schedule } from "src/modules/schedule/entities/schedule.entity";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryColumn } from "typeorm";
 
-@Entity({name:'curso'})
-class Course{
-    @Column()
+@Entity('curso', { schema: 'public' })
+export class Course {
+    @PrimaryColumn('varchar')
     id_curso: string;
-    @Column()
+
+    @Column('varchar', {
+        name: 'nombre_curso',
+        nullable: false,
+    })
     nombre_curso: string;
-    @Column()
+
+    @Column('integer', {
+        name: 'capacidad_curso',
+        nullable: false,
+    })
     capacidad_curso: number;
-    @Column()
-    id_tipoaula: number;
+
+    @ManyToOne(() => TipoAula, (tipoaula) => tipoaula.courses)
+    @JoinColumn({
+        name: 'id_tipoaula',
+    })
+    tipoaula: TipoAula;
+
+    @OneToMany(() => Schedule, (schedule) => schedule.course)
+    schedules: Schedule[];
 }
