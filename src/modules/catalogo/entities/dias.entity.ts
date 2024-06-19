@@ -12,6 +12,7 @@ export class Dias {
         nullable: false
     })
     nombre_dia: string;
+    
     @OneToMany(() => Schedule, (schedule) => schedule.dias)
     schedules: Schedule[];
 }

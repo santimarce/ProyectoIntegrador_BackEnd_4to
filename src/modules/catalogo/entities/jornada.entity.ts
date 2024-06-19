@@ -11,6 +11,7 @@ export class Jornada {
         nullable: false
     })
     nombre_jornada: string;
+    
     @OneToMany(() => Student, (student) => student.jornada)
     students: Student[];
 }

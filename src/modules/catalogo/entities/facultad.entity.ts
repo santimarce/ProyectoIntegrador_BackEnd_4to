@@ -11,6 +11,7 @@ export class Facultad {
         nullable: false
     })
     nombre_facultad: string;
+    
     @OneToMany(() => Teacher, (teacher) => teacher.facultad)
     docentes: Teacher[];
 }

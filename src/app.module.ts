@@ -10,6 +10,7 @@ import { CourseModule } from './modules/course/course.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AsignaturasModule } from './modules/asignaturas/asignaturas.module';
 import { MallacurricularModule } from './modules/mallacurricular/mallacurricular.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -24,7 +25,7 @@ import { MallacurricularModule } from './modules/mallacurricular/mallacurricular
       synchronize: false, // solo activar si las tablas no existen
       dropSchema: false   // no activar, borra toda la base y la crea de cero
     }),
-    TaskModule, TeachersModule, CatalogoModule, StudentModule, ScheduleModule, CourseModule, AsignaturasModule, MallacurricularModule],
+    TaskModule, TeachersModule, CatalogoModule, StudentModule, ScheduleModule, CourseModule, AsignaturasModule, MallacurricularModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })

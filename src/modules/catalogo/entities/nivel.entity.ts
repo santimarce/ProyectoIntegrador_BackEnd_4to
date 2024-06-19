@@ -11,6 +11,7 @@ export class Nivel {
         nullable: false
     })
     nombre_nivel: string;
+    
     @OneToMany(() => Student, (student) => student.nivel)
     students: Student[];
 }

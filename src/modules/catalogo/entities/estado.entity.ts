@@ -11,6 +11,7 @@ export class Estado {
         nullable: false
     })
     nombre_estado: string;
+    
     @OneToMany(() => Teacher, (teacher) => teacher.estado)
     docentes: Teacher[];
 }
